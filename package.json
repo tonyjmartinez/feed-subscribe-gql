@@ -4,6 +4,8 @@
   "description": "Demonstration of protecting API gateway endpoints with auth0",
   "license": "MIT",
   "dependencies": {
+    "apollo-server-lambda": "^2.11.0",
+    "aws-sdk": "^2.635.0",
     "jsonwebtoken": "^8.1.0"
   },
   "devDependencies": {

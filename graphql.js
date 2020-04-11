@@ -72,7 +72,7 @@ const resolvers = {
       try {
         return dbService.createFeed(args, process.env.tableName);
       } catch (err) {
-        return [e.toString];
+        return ["ERRORRR"];
       }
     },
     createSong: (_, args) => {

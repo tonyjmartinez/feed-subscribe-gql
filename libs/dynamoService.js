@@ -22,6 +22,10 @@ module.exports = {
         source: args.source,
       },
     };
-    return db.createItem(params);
+    try {
+      return db.createItem(params);
+    } catch (err) {
+      return err;
+    }
   },
 };

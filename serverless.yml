@@ -19,6 +19,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   tableName: ${self:custom.stage}-comments-table
   graphQLTable: ${self:custom.stage}-graphql
+  feedsTable: ${self:custom.stage}-feeds
 
 functions:
   auth:

@@ -9,6 +9,10 @@ const { ApolloServer, gql } = require("apollo-server-lambda");
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
+  type Feed {
+    name: String
+    source: String
+  }
   type Comment {
     content: String
     userId: String
@@ -20,6 +24,7 @@ const typeDefs = gql`
   }
   type Mutation {
     createSong(content: String!, userId: String!, commentId: String!): Comment
+    createFeed(name: String!, source: String!): Feed
     # updateSong(
     #   id: ID!
     #   title: String
@@ -36,9 +41,13 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => "Hello world!",
+    feeds: () => {
+      const params = { TableName: process.env.feedsTable };
+      return db.scan(params);
+    },
     comments: () => {
       const params = {
-        TableName: process.env.tableName
+        TableName: process.env.tableName,
       };
 
       try {
@@ -56,17 +65,24 @@ const resolvers = {
       } catch (e) {
         return [e.toString()];
       }
-    }
+    },
   },
   Mutation: {
+    createFeed: (_, args) => {
+      try {
+        return dbService.createFeed(args, process.env.tableName);
+      } catch (err) {
+        return [e.toString];
+      }
+    },
     createSong: (_, args) => {
       try {
         return dbService.createComment(args, process.env.tableName);
       } catch (err) {
         return [e.toString];
       }
-    }
-  }
+    },
+  },
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
@@ -74,6 +90,6 @@ const server = new ApolloServer({ typeDefs, resolvers });
 exports.graphqlHandler = server.createHandler({
   cors: {
     origin: "*",
-    credentials: true
-  }
+    credentials: true,
+  },
 });

@@ -41,10 +41,10 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => "Hello world!",
-    feeds: () => {
-      const params = { TableName: process.env.feedsTable };
-      return db.scan(params);
-    },
+    // feeds: () => {
+    //   const params = { TableName: process.env.feedsTable };
+    //   return db.scan(params);
+    // },
     comments: () => {
       const params = {
         TableName: process.env.tableName,
@@ -72,16 +72,16 @@ const resolvers = {
       try {
         return dbService.createFeed(args, process.env.tableName);
       } catch (err) {
-        return ["ERRORRR"];
+        return [err];
       }
     },
-    createSong: (_, args) => {
-      try {
-        return dbService.createComment(args, process.env.tableName);
-      } catch (err) {
-        return [e.toString];
-      }
-    },
+    // createSong: (_, args) => {
+    //   try {
+    //     return dbService.createComment(args, process.env.tableName);
+    //   } catch (err) {
+    //     return [e.toString];
+    //   }
+    // },
   },
 };
 

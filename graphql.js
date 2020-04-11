@@ -41,10 +41,10 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => "Hello world!",
-    // feeds: () => {
-    //   const params = { TableName: process.env.feedsTable };
-    //   return db.scan(params);
-    // },
+    feeds: () => {
+      const params = { TableName: process.env.feedsTable };
+      return db.scan(params);
+    },
     comments: () => {
       const params = {
         TableName: process.env.tableName,
@@ -70,7 +70,7 @@ const resolvers = {
   Mutation: {
     createFeed: (_, args) => {
       try {
-        return dbService.createFeed(args, process.env.tableName);
+        return dbService.createFeed(args, process.env.feedsTable);
       } catch (err) {
         return [err];
       }

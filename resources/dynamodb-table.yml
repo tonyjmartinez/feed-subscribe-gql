@@ -15,3 +15,17 @@ Resources:
           KeyType: RANGE
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
+  FeedsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.feedsTable}
+      AttributeDefinitions:
+        - AttributeName: name
+          AttributeType: S
+        - AttributeName: source
+          AttributeType: S
+      KeySchema:
+        - AttributeName: name
+          KeyType: HASH
+      # Set the capacity to auto-scale
+      BillingMode: PAY_PER_REQUEST

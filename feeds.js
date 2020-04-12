@@ -40,8 +40,6 @@ module.exports.nba = async function (event, context) {
     const { hTeam, vTeam, isGameActivated } = game;
     const homeTeamInfo = findTeam(teams, hTeam.teamId);
     const visitingTeamInfo = findTeam(teams, vTeam.teamId);
-    const HomeLogo = logos[homeTeamInfo.tricode];
-    const VisitingLogo = logos[visitingTeamInfo.tricode];
     console.log("getgamestate", getGameState(game));
     const active = isGameActivated;
     return {
@@ -49,12 +47,10 @@ module.exports.nba = async function (event, context) {
       home: {
         score: hTeam.score,
         name: `${homeTeamInfo.tricode} ${homeTeamInfo.nickname}`,
-        logo: <HomeLogo size={35} />,
       },
       visitor: {
         score: vTeam.score,
         name: `${visitingTeamInfo.tricode} ${visitingTeamInfo.nickname}`,
-        logo: <VisitingLogo size={35} />,
       },
       active,
     };

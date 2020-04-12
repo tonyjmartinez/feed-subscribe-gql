@@ -1,5 +1,4 @@
-
-module.exports = [
+const teams = [
   {
     isNBAFranchise: true,
     isAllStar: false,
@@ -12,7 +11,7 @@ module.exports = [
     urlName: "hawks",
     teamShortName: "Atlanta",
     confName: "East",
-    divName: "Southeast"
+    divName: "Southeast",
   },
   {
     isNBAFranchise: true,
@@ -26,7 +25,7 @@ module.exports = [
     urlName: "celtics",
     teamShortName: "Boston",
     confName: "East",
-    divName: "Atlantic"
+    divName: "Atlantic",
   },
   {
     isNBAFranchise: true,
@@ -40,7 +39,7 @@ module.exports = [
     urlName: "nets",
     teamShortName: "Brooklyn",
     confName: "East",
-    divName: "Atlantic"
+    divName: "Atlantic",
   },
   {
     isNBAFranchise: true,
@@ -54,7 +53,7 @@ module.exports = [
     urlName: "hornets",
     teamShortName: "Charlotte",
     confName: "East",
-    divName: "Southeast"
+    divName: "Southeast",
   },
   {
     isNBAFranchise: true,
@@ -68,7 +67,7 @@ module.exports = [
     urlName: "bulls",
     teamShortName: "Chicago",
     confName: "East",
-    divName: "Central"
+    divName: "Central",
   },
   {
     isNBAFranchise: true,
@@ -82,7 +81,7 @@ module.exports = [
     urlName: "cavaliers",
     teamShortName: "Cleveland",
     confName: "East",
-    divName: "Central"
+    divName: "Central",
   },
   {
     isNBAFranchise: true,
@@ -96,7 +95,7 @@ module.exports = [
     urlName: "mavericks",
     teamShortName: "Dallas",
     confName: "West",
-    divName: "Southwest"
+    divName: "Southwest",
   },
   {
     isNBAFranchise: true,
@@ -110,7 +109,7 @@ module.exports = [
     urlName: "nuggets",
     teamShortName: "Denver",
     confName: "West",
-    divName: "Northwest"
+    divName: "Northwest",
   },
   {
     isNBAFranchise: true,
@@ -124,7 +123,7 @@ module.exports = [
     urlName: "pistons",
     teamShortName: "Detroit",
     confName: "East",
-    divName: "Central"
+    divName: "Central",
   },
   {
     isNBAFranchise: true,
@@ -138,7 +137,7 @@ module.exports = [
     urlName: "warriors",
     teamShortName: "Golden State",
     confName: "West",
-    divName: "Pacific"
+    divName: "Pacific",
   },
   {
     isNBAFranchise: true,
@@ -152,7 +151,7 @@ module.exports = [
     urlName: "rockets",
     teamShortName: "Houston",
     confName: "West",
-    divName: "Southwest"
+    divName: "Southwest",
   },
   {
     isNBAFranchise: true,
@@ -166,7 +165,7 @@ module.exports = [
     urlName: "pacers",
     teamShortName: "Indiana",
     confName: "East",
-    divName: "Central"
+    divName: "Central",
   },
   {
     isNBAFranchise: true,
@@ -180,7 +179,7 @@ module.exports = [
     urlName: "clippers",
     teamShortName: "LA Clippers",
     confName: "West",
-    divName: "Pacific"
+    divName: "Pacific",
   },
   {
     isNBAFranchise: true,
@@ -194,7 +193,7 @@ module.exports = [
     urlName: "lakers",
     teamShortName: "L.A. Lakers",
     confName: "West",
-    divName: "Pacific"
+    divName: "Pacific",
   },
   {
     isNBAFranchise: true,
@@ -208,7 +207,7 @@ module.exports = [
     urlName: "grizzlies",
     teamShortName: "Memphis",
     confName: "West",
-    divName: "Southwest"
+    divName: "Southwest",
   },
   {
     isNBAFranchise: true,
@@ -222,7 +221,7 @@ module.exports = [
     urlName: "heat",
     teamShortName: "Miami",
     confName: "East",
-    divName: "Southeast"
+    divName: "Southeast",
   },
   {
     isNBAFranchise: true,
@@ -236,7 +235,7 @@ module.exports = [
     urlName: "bucks",
     teamShortName: "Milwaukee",
     confName: "East",
-    divName: "Central"
+    divName: "Central",
   },
   {
     isNBAFranchise: true,
@@ -250,7 +249,7 @@ module.exports = [
     urlName: "timberwolves",
     teamShortName: "Minnesota",
     confName: "West",
-    divName: "Northwest"
+    divName: "Northwest",
   },
   {
     isNBAFranchise: true,
@@ -264,7 +263,7 @@ module.exports = [
     urlName: "pelicans",
     teamShortName: "New Orleans",
     confName: "West",
-    divName: "Southwest"
+    divName: "Southwest",
   },
   {
     isNBAFranchise: true,
@@ -278,7 +277,7 @@ module.exports = [
     urlName: "knicks",
     teamShortName: "New York",
     confName: "East",
-    divName: "Atlantic"
+    divName: "Atlantic",
   },
   {
     isNBAFranchise: true,
@@ -292,7 +291,7 @@ module.exports = [
     urlName: "thunder",
     teamShortName: "Oklahoma City",
     confName: "West",
-    divName: "Northwest"
+    divName: "Northwest",
   },
   {
     isNBAFranchise: true,
@@ -306,7 +305,7 @@ module.exports = [
     urlName: "magic",
     teamShortName: "Orlando",
     confName: "East",
-    divName: "Southeast"
+    divName: "Southeast",
   },
   {
     isNBAFranchise: true,
@@ -320,7 +319,7 @@ module.exports = [
     urlName: "sixers",
     teamShortName: "Philadelphia",
     confName: "East",
-    divName: "Atlantic"
+    divName: "Atlantic",
   },
   {
     isNBAFranchise: true,
@@ -334,7 +333,7 @@ module.exports = [
     urlName: "suns",
     teamShortName: "Phoenix",
     confName: "West",
-    divName: "Pacific"
+    divName: "Pacific",
   },
   {
     isNBAFranchise: true,
@@ -348,7 +347,7 @@ module.exports = [
     urlName: "blazers",
     teamShortName: "Portland",
     confName: "West",
-    divName: "Northwest"
+    divName: "Northwest",
   },
   {
     isNBAFranchise: true,
@@ -362,7 +361,7 @@ module.exports = [
     urlName: "kings",
     teamShortName: "Sacramento",
     confName: "West",
-    divName: "Pacific"
+    divName: "Pacific",
   },
   {
     isNBAFranchise: true,
@@ -376,7 +375,7 @@ module.exports = [
     urlName: "spurs",
     teamShortName: "San Antonio",
     confName: "West",
-    divName: "Southwest"
+    divName: "Southwest",
   },
   {
     isNBAFranchise: true,
@@ -390,7 +389,7 @@ module.exports = [
     urlName: "raptors",
     teamShortName: "Toronto",
     confName: "East",
-    divName: "Atlantic"
+    divName: "Atlantic",
   },
   {
     isNBAFranchise: true,
@@ -404,7 +403,7 @@ module.exports = [
     urlName: "jazz",
     teamShortName: "Utah",
     confName: "West",
-    divName: "Northwest"
+    divName: "Northwest",
   },
   {
     isNBAFranchise: true,
@@ -418,6 +417,8 @@ module.exports = [
     urlName: "wizards",
     teamShortName: "Washington",
     confName: "East",
-    divName: "Southeast"
-  }
+    divName: "Southeast",
+  },
 ];
+
+module.exports = teams;

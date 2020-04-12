@@ -21,7 +21,9 @@ const typeDefs = gql`
   type Query {
     hello: String
     comments: [Comment]
+    feeds: [Feed]
   }
+
   type Mutation {
     createSong(content: String!, userId: String!, commentId: String!): Comment
     createFeed(name: String!, source: String!): Feed

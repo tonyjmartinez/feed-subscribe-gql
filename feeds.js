@@ -1,5 +1,6 @@
 const axios = require("axios");
 const teams = require("./data/teams");
+const _ = require("lodash");
 
 const getNumberWithOrdinal = (n) => {
   var s = ["th", "st", "nd", "rd"],

@@ -2,7 +2,6 @@ const db = require("./libs/dynamo");
 const dbService = require("./libs/dynamoService.js");
 const { ApolloServer, gql } = require("apollo-server-lambda");
 const nba = require("./nba");
-const { GraphQLJSON, GraphQLJSONObject } = require("graphql-type-json");
 
 // import * as dynamoDbLib from "./libs/dynamodb-lib";
 // import { promisify } from "./util";
@@ -25,7 +24,7 @@ const typeDefs = gql`
     hello: String
     comments: [Comment]
     feeds: [Feed]
-    nba: GraphQLJSON
+    nba: String
   }
 
   type Mutation {
@@ -53,8 +52,12 @@ const resolvers = {
     },
     nba: (parent, args) => {
       return new Promise(async (resolve, reject) => {
-        const games = await nba.feed2(args.date);
-        resolve(games);
+        try {
+          const games = await nba.feed2(args.date);
+          resolve(games);
+        } catch (err) {
+          reject(err);
+        }
       });
     },
     // user(parent, args, context, info) {

@@ -42,6 +42,13 @@ functions:
           # See custom authorizer docs here: http://bit.ly/2gXw9pO
           authorizer: auth
           cors: true
+  feeds:
+    handler: feeds.nba
+    events:
+      - http:
+          path: api/feeds/nba
+          method: get
+          cors: true
   graphql:
     handler: graphql.graphqlHandler
     events:

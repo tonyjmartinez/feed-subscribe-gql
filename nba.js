@@ -92,11 +92,7 @@ module.exports.feed2 = async function (date) {
     };
   });
 
-  return {
-    // return null to show no errors
-    statusCode: 200, // http status code
-    body: JSON.stringify({
-      games: scores,
-    }),
-  };
+  return JSON.stringify({
+    games: scores,
+  });
 };

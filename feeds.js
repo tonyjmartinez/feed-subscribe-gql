@@ -61,7 +61,7 @@ module.exports.nba = async function (event, context) {
     // return null to show no errors
     statusCode: 200, // http status code
     body: JSON.stringify({
-      games: res.data,
+      games: res.data.games.games,
     }),
   };
 };

@@ -1,6 +1,7 @@
 const db = require("./libs/dynamo");
 const dbService = require("./libs/dynamoService.js");
 const { ApolloServer, gql } = require("apollo-server-lambda");
+const nba = require("./nba");
 // import * as dynamoDbLib from "./libs/dynamodb-lib";
 // import { promisify } from "./util";
 // import { success, failure } from "./libs/response-lib";
@@ -22,6 +23,7 @@ const typeDefs = gql`
     hello: String
     comments: [Comment]
     feeds: [Feed]
+    nba: Object
   }
 
   type Mutation {
@@ -47,6 +49,15 @@ const resolvers = {
       const params = { TableName: process.env.feedsTable };
       return db.scan(params);
     },
+    nba: (parent, args) => {
+      return new Promise(async (resolve, reject) => {
+        const games = await nba.feed2(args.date);
+        resolve(games);
+      });
+    },
+    // user(parent, args, context, info) {
+    //   return users.find(user => user.id === args.id);
+    // }
     comments: () => {
       const params = {
         TableName: process.env.tableName,

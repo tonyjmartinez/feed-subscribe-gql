@@ -2,6 +2,7 @@ const db = require("./libs/dynamo");
 const dbService = require("./libs/dynamoService.js");
 const { ApolloServer, gql } = require("apollo-server-lambda");
 const nba = require("./nba");
+import { GraphQLJSONObject } from "graphql-type-json";
 
 // import * as dynamoDbLib from "./libs/dynamodb-lib";
 // import { promisify } from "./util";
@@ -24,7 +25,7 @@ const typeDefs = gql`
     hello: String
     comments: [Comment]
     feeds: [Feed]
-    nba(date: Int): String
+    nba(date: Int): GraphQLJSONObject
   }
 
   type Mutation {

@@ -92,7 +92,7 @@ module.exports.feed2 = async function (date) {
     };
   });
 
-  return JSON.stringify({
+  return {
     games: scores,
-  });
+  };
 };

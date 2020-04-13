@@ -24,7 +24,7 @@ const typeDefs = gql`
     hello: String
     comments: [Comment]
     feeds: [Feed]
-    nba(date: Number): String
+    nba(date: Int): String
   }
 
   type Mutation {

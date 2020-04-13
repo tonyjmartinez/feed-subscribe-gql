@@ -12,6 +12,8 @@ const { GraphQLJSON, GraphQLJSONObject } = require("graphql-type-json");
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
+  scalar JSON
+
   type Feed {
     name: String
     source: String
@@ -25,7 +27,7 @@ const typeDefs = gql`
     hello: String
     comments: [Comment]
     feeds: [Feed]
-    nba(date: Int): GraphQLJSONObject
+    nba(date: Int): JSON
   }
 
   type Mutation {
@@ -45,6 +47,7 @@ const typeDefs = gql`
 
 // Provide resolver functions for your schema fields
 const resolvers = {
+  JSON: GraphQLJSON,
   Query: {
     hello: () => "Hello world!",
     feeds: () => {

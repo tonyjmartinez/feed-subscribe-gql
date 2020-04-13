@@ -2,7 +2,7 @@ const db = require("./libs/dynamo");
 const dbService = require("./libs/dynamoService.js");
 const { ApolloServer, gql } = require("apollo-server-lambda");
 const nba = require("./nba");
-import { GraphQLJSONObject } from "graphql-type-json";
+const { GraphQLJSON, GraphQLJSONObject } = require("graphql-type-json");
 
 // import * as dynamoDbLib from "./libs/dynamodb-lib";
 // import { promisify } from "./util";

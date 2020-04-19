@@ -46,14 +46,13 @@ module.exports.feed = async function (date) {
       home: {
         score: hTeam.score,
         name: `${homeTeamInfo.tricode} ${homeTeamInfo.nickname}`,
-        triCode: homeTeamInfo.triCode,
+        triCode: homeTeamInfo.tricode,
       },
       visitor: {
         score: vTeam.score,
         name: `${visitingTeamInfo.tricode} ${visitingTeamInfo.nickname}`,
-        triCode: visitingTeamInfo.triCode,
+        triCode: visitingTeamInfo.tricode,
       },
-      test: "test2",
       active,
     };
   });

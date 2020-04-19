@@ -53,6 +53,7 @@ module.exports.feed = async function (date) {
         name: `${visitingTeamInfo.tricode} ${visitingTeamInfo.nickname}`,
         triCode: visitingTeamInfo.triCode,
       },
+      test: "test2",
       active,
     };
   });

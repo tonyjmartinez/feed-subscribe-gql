@@ -48,10 +48,12 @@ module.exports.feed = async function (event, context) {
       home: {
         score: hTeam.score,
         name: `${homeTeamInfo.tricode} ${homeTeamInfo.nickname}`,
+        triCode: homeTeamInfo.triCode,
       },
       visitor: {
         score: vTeam.score,
         name: `${visitingTeamInfo.tricode} ${visitingTeamInfo.nickname}`,
+        triCode: homeTeamInfo.triCode,
       },
       active,
     };

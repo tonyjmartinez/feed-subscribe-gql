@@ -29,9 +29,7 @@ const getGameState = (game) => {
   }
 };
 
-module.exports.feed = async function (event, context) {
-  console.log("queryStringParameters", event.queryStringParameters.date);
-  const date = event.queryStringParameters.date;
+module.exports.feed = async function (date) {
   const res = await axios.get(
     `http://data.nba.net/data/10s/prod/v1/${date}/scoreboard.json`
   );
@@ -53,42 +51,7 @@ module.exports.feed = async function (event, context) {
       visitor: {
         score: vTeam.score,
         name: `${visitingTeamInfo.tricode} ${visitingTeamInfo.nickname}`,
-        triCode: homeTeamInfo.triCode,
-      },
-      active,
-    };
-  });
-
-  return {
-    // return null to show no errors
-    statusCode: 200, // http status code
-    body: JSON.stringify({
-      games: scores,
-    }),
-  };
-};
-
-module.exports.feed2 = async function (date) {
-  const res = await axios.get(
-    `http://data.nba.net/data/10s/prod/v1/${date}/scoreboard.json`
-  );
-  console.log("res?", res.data);
-  const games = _.get(res, "data.games");
-  const scores = games.map((game) => {
-    const { hTeam, vTeam, isGameActivated } = game;
-    const homeTeamInfo = findTeam(teams, hTeam.teamId);
-    const visitingTeamInfo = findTeam(teams, vTeam.teamId);
-    console.log("getgamestate", getGameState(game));
-    const active = isGameActivated;
-    return {
-      gameState: getGameState(game),
-      home: {
-        score: hTeam.score,
-        name: `${homeTeamInfo.tricode} ${homeTeamInfo.nickname}`,
-      },
-      visitor: {
-        score: vTeam.score,
-        name: `${visitingTeamInfo.tricode} ${visitingTeamInfo.nickname}`,
+        triCode: visitingTeamInfo.triCode,
       },
       active,
     };

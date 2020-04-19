@@ -57,7 +57,7 @@ const resolvers = {
     nba: (parent, args) => {
       return new Promise(async (resolve, reject) => {
         try {
-          const games = await nba.feed2(args.date);
+          const games = await nba.feed(args.date);
           resolve(games);
         } catch (err) {
           reject(err);
